@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="formDiv">
+        <h2>resend activation mail</h2>
+        <form id="myForm">
+            {% csrf_token %}
+            <input type="email" id="eMail">
+            <input type="submit" value="Activate">
+        </form>
+    </div>
+    
+</body>
+    <script>
+         document.getElementById("myForm").addEventListener("submit",activateAccount);
+         function activateAccount(e){
+            e.preventDefault();
+            let mail = document.getElementById("eMail").value;
+            console.log(mail);
+
+
+            const URL = "https://192.168.43.201:8000/auth/users/resend_activation/"
+            fetch(URL,{
+                method:"POST",
+                headers:{
+                    'Accept':'application/json, text/plain ,*/*',
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify({
+                    email:mail
+                })
+            })
+            .then((data) => {console.log(data)})
+            
+            }
+    </script>
+</html>
