@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'djoser',
-    'sslserver',
+    
 ]
 
 REST_FRAMEWORK = {
