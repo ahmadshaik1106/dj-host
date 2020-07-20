@@ -4,7 +4,6 @@ from django.http import HttpResponse,HttpResponseRedirect
 from rest_framework.response import Response
 from django.contrib import messages
 from rest_framework.decorators import api_view 
-import requests
 
 def passwordResetConfirm(request,uid,token):
     context = {'token':token,'uid':uid}
